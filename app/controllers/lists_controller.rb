@@ -5,6 +5,10 @@ class ListsController < ApplicationController
     @lists = List.all
   end
 
+  def show
+    @bookmark = Bookmark.new
+  end
+
   def new
     @list = List.new
   end
@@ -16,11 +20,6 @@ class ListsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-    @bookmark = Bookmark.new
-    @review = Review.new(list: @list)
   end
 
   def destroy
